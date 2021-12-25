@@ -1,0 +1,42 @@
+﻿@model SAP.ViewModels.Orders.OrderListViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model?.Orders?.Any() == true)
+{
+    <h1>Your orders</h1>
+
+    <div>
+        <div class="row">
+            <div class="col-1">#</div>
+            <div class="col-5">Order identifier</div>
+            <div class="col-3">Creating date</div>
+            <div class="col-3">Total price</div>
+        </div>
+        @{
+            int i = 1;
+            foreach (var order in Model.Orders)
+            {
+                <a class="text-dark" asp-controller="Orders" asp-action="Details" asp-route-id="@order.Id">
+                    <div class="row">
+                        <div class="col-1">@i</div>
+                        <div class="col-5">@order.Id</div>
+                        <div class="col-3">@order.CreateDate.ToString("dd.MM.yyyy")</div>
+                        <div class="col-3">Total: @($"{order.TotalPrice}$")</div>
+                    </div>
+                </a>
+                i++;
+            }
+        }
+    </div>
+}
+else
+{
+    <h1>You have no orders yet</h1>
+    <div>
+        <a asp-controller="Catalogue" asp-action="Index">To Catalogue</a>
+    </div>
+}

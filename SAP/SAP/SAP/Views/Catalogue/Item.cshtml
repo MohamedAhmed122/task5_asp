@@ -1,0 +1,73 @@
+﻿@model SAP.ViewModels.Catalogue.ItemViewModel
+
+@{
+    ViewData["Title"] = "Item";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.Name</h1>
+<div class="row">
+    <div class="col-3">
+        <img src="@Model.PictureUrl" />
+    </div>
+    <div class="col-9">
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.ManufacturerId)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.ManufacturerId)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.QuantityInStock)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.QuantityInStock)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.IsInStock)
+            </dt>
+            <dd class="col-sm-9">
+                @if (Model.IsInStock)
+                {
+                    <span class="text-success">In stock</span>
+                }
+                else
+                {
+                    <span class="text-danger">Not in stock</span>
+                }
+            </dd>
+        </dl>
+        <div class="row pl-3">
+            @if (Model.IsInCart)
+            {
+                <span class="text-success">Item in cart <a asp-controller="Cart" asp-action="Index">Go to cart</a></span>
+            }
+            else
+            {
+                <form asp-controller="Cart" asp-action="AddItem" method="post">
+                    <input hidden name="Id" value="@Model.Id" />
+                    @if (Model.Attributes?.Any() == true)
+                    {
+                        <div>
+                            <label for="AttributesId">Attributes</label>
+                            <select name="AttributesId" asp-items="Model.AttributesToSelect"></select>
+                        </div>
+                    }
+                    <div>
+                        <input type="submit" value="Add to cart" class="btn btn-primary" />
+                    </div>
+                </form>
+            }
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index" asp-route-id="@Model.CategoryId">Back to Catalogue</a>
+</div>

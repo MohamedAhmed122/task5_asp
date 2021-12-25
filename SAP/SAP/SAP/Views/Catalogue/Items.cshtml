@@ -1,0 +1,38 @@
+﻿@model SAP.ViewModels.Catalogue.CategoryViewModel
+
+@if (Model?.Items?.Any() == true)
+{
+    @foreach (var item in Model.Items)
+    {
+        <div class="col-4">
+            <a asp-area="" asp-controller="Catalogue" asp-action="Item" asp-route-id="@item.Id">
+                <div class="row">
+                    <img class="pl-3 pr-3" src="@item.PictureUrl" />
+                </div>
+                <div class="row">
+                    <div class="col">
+                        @item.Name
+                    </div>
+                    <div class="col">
+                        @if (item.IsInStock)
+                        {
+                            <span class="text-success">In stock</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">Not in stock</span>
+                        }
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+}
+else if (Model?.Childs?.Any() == true)
+{
+    @(await Html.PartialAsync("Items", Model.Childs.FirstOrDefault(x => x.IsSelected)))
+}
+else
+{
+    <div>Go through catalogue deeper</div>
+}

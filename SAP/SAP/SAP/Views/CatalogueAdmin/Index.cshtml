@@ -1,0 +1,44 @@
+﻿@model SAP.ViewModels.Catalogue.CatalogueViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model?.RootCategories?.Any() == true)
+{
+    <div class="text-center">
+        <h1>Catalogue administration</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+            <div class="row text-center">
+                <h3>Categories</h3>
+            </div>
+            <div class="row">
+                <ul>
+                    @foreach (var node in Model.RootCategories)
+                    {
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="CatalogueAdmin" asp-action="Node" asp-route-id="@node.Id">@node.Name</a>
+                            @(await Html.PartialAsync("CatalogueNode", node.Childs))
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="row text-center">
+                <h3>Items</h3>
+            </div>
+            <div class="row">
+                @(await Html.PartialAsync("Items", Model.RootCategories.FirstOrDefault(x => x.IsSelected)))
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <h1>Catalogue is empty</h1>
+}

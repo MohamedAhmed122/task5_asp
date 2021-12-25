@@ -1,0 +1,65 @@
+[
+  {
+    "Name": "BlackView BV5800",
+    "Attributes": [
+      {
+        "Color": 1,
+        "Price": 6.00
+      },
+      {
+        "Color": 3,
+        "Price": 7.00
+      },
+      {
+        "Color": 0,
+        "Price": 8.00
+      }
+    ],
+    "CategoryId": "22b45fb9-5f3e-42be-1c61-08d749c970cf",
+    "ManufacturerId": "BV5800",
+    "PictureUrl": "https:\/\/c.dns-shop.ru\/thumb\/st1\/fit\/200\/200\/31a545ddd994c95d5ef4d8f60b538cef\/c772ef552a37fa50809c1882f4822fc3026bd6354a802cebf52553af7cdd45be.jpg.webp",
+    "QuantityInStock": 33
+  },
+  {
+    "Name": "Xiaomi Mi Play",
+    "Attributes": [
+      {
+        "Color": 1,
+        "Price": 9.00
+      },
+      {
+        "Color": 3,
+        "Price": 10.00
+      },
+      {
+        "Color": 0,
+        "Price": 11.00
+      }
+    ],
+    "CategoryId": "22b45fb9-5f3e-42be-1c61-08d749c970cf",
+    "ManufacturerId": "XiaomiMI64",
+    "PictureUrl": "https:\/\/c.dns-shop.ru\/thumb\/st1\/fit\/200\/200\/ef163a91c30c7de13e4400cc1fde84e1\/078678b7b749ee6646a76803dbe5d69ef47db28a70ef0e86ce567aa6525a029d.jpg.webp",
+    "QuantityInStock": 66
+  },
+  {
+    "Name": "Asus Zenfone Max M2",
+    "Attributes": [
+      {
+        "Color": 1,
+        "Price": 12.00
+      },
+      {
+        "Color": 3,
+        "Price": 13.00
+      },
+      {
+        "Color": 0,
+        "Price": 14.00
+      }
+    ],
+    "CategoryId": "22b45fb9-5f3e-42be-1c61-08d749c970cf",
+    "ManufacturerId": "ASUSM2",
+    "PictureUrl": "https:\/\/c.dns-shop.ru\/thumb\/st1\/fit\/200\/200\/f98b6ace0ac4f5bc3699a85a2e5ee53f\/0e4e3699850a180e150ecb355cc0b41d66770ea5f2dd0d14e6e5a975167bb1cc.jpg.webp",
+    "QuantityInStock": 100
+  }
+]

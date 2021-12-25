@@ -1,0 +1,2 @@
+Name;CategoryId;ManufacturerId;QuantityInStock;[attributes];PictureUrl !Skip this line when you will read this file. It only shows you a structure!
+LG Q7;22b45fb9-5f3e-42be-1c61-08d749c970cf;LGQ7;99;[1:23.00;3:20.00];https://c.dns-shop.ru/thumb/st1/fit/200/200/55ab72bf371616596daac36f8575f2ab/763a5b3f1d8767be597eea54c4d643ee64434edf8a89cc383e00d0e6813443e5.jpg.webp

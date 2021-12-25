@@ -1,0 +1,71 @@
+﻿@model SAP.ViewModels.Cart.CartViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model != null && Model?.Items?.Any() == true)
+{
+    <h1>Items in your cart</h1>
+    <div>
+        @foreach (var item in Model.Items)
+        {
+            <div class="row">
+                <div class="col-3">
+                    <img src="@item.Item.PictureUrl" />
+                </div>
+                <div class="col-6">
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Quantity
+                        </dt>
+                        <dd class="col-sm-9">
+                            @item.Quantity
+                        </dd>
+                        <dt class="col-sm-3">
+                            Name
+                        </dt>
+                        <dd class="col-sm-9">
+                            @item.Item.Name
+                        </dd>
+                        <dt class="col-sm-3">
+                            Color
+                        </dt>
+                        <dd class="col-sm-9">
+                            @item.Attributes.Color.ToString()
+                        </dd>
+                        <dt class="col-sm-3">
+                            Price
+                        </dt>
+                        <dd class="col-sm-9">
+                            @($"{item.Attributes.Price}$")
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-3">
+                    <a asp-controller="Cart" asp-action="ChangeQuantity" asp-route-itemId="@item.ItemId" asp-route-dif="1">+</a> |
+                    <a asp-controller="Cart" asp-action="ChangeQuantity" asp-route-itemId="@item.ItemId" asp-route-dif="-1">-</a> |
+                    <a asp-controller="Cart" asp-action="Remove" asp-route-itemId="@item.ItemId">Remove</a>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <a asp-controller="Catalogue" asp-action="Index">To Catalogue</a>
+        </div>
+        <div class="col-6"></div>
+        <div class="col-3">
+            <h4>Total: @($"{Model.TotalPrice}$")</h4>
+            <a class="btn btn-primary" asp-controller="Orders" asp-action="Create">Create Order</a>
+        </div>
+    </div>
+}
+else
+{
+    <h1>Your cart is empty</h1>
+    <div>
+        <a asp-controller="Catalogue" asp-action="Index">To Catalogue</a>
+    </div>
+}

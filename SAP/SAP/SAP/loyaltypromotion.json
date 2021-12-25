@@ -1,0 +1,17 @@
+{
+  "Loyalty": {
+    "UserOrdersAmount": 500,
+    "Discount": 10
+  },
+  "PromotionItems": [
+    {
+      "ItemId": 50,
+      "Discount": 5
+    },
+    {
+      "ItemId": 60,
+      "Discount": 7
+    }
+  ]
+
+}
